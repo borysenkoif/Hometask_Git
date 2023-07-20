@@ -9,7 +9,8 @@
 | Task list | Date |
 | ----- | ----- |
 | Task 1 | *Scrum* and **DevOps** |
-| Task 2| Git and Github |
+| Task 2 | Git and Github |
 
 ## Summary:
 - add Oleh as reviewer
+- create merge request
