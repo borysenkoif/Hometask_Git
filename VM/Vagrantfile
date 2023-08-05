@@ -1,0 +1,10 @@
+## two containers
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+   config.vm.provider "docker" do |d|
+     d.image = "buntu/trusty64"
+     d.name = "app1"
+     d.ports = ["8080:80"]
+   end
+  end
+  
