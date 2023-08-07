@@ -1,10 +1,17 @@
 ## two containers
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.define "nginx" do |config|
    config.vm.provider "docker" do |d|
-     d.image = "buntu/trusty64"
+     d.image = "nginx"
      d.name = "app1"
      d.ports = ["8080:80"]
    end
   end
-  
+  config.vm.define "wordpress" do |config|
+   config.vm.provider "docker" do |d|
+     d.image = "wordpress"
+     d.name = "app2"
+     d.ports = ["8081:80"]
+   end
+  end
+ end
