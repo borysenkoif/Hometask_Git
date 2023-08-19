@@ -1,0 +1,46 @@
+## two containers
+Vagrant.configure("2") do |config|
+  config.vm.define "nginx" do |config|
+   config.vm.provider "docker" do |d|
+     d.image = "nginx"
+     d.name = "app1"
+     d.ports = ["8080:80"]
+   end
+  end
+  config.vm.define "wordpress" do |config|
+   config.vm.provider "docker" do |d|
+     d.image = "wordpress"
+     d.name = "app2"
+     d.ports = ["8081:80"]
+   end
+  end
+ end
+ 
+ ### Network
+ Vagrant.configure("2") do |config|
+   config.vm.define "docker"  do |docker|
+     docker.vm.network :forwarded_port, guest: 80, host: 8081
+     docker.vm.network :forwarded_port, guest: 80, host: 12345
+       config.vm.provider "docker" do |d|
+        d.image = "nginx"
+        d.name = "app1"
+        d.ports = ["8081:80"]
+       end
+   end
+ end
+ 
+ ### Volume
+ Vagrant.configure("2") do |config|
+   config.vm.synced_folder "./", "/okury"
+   config.ssh.username = "vagrant"
+   config.ssh.password = "vagrant"
+   config.vm.define "docker"  do |docker|
+     docker.vm.network :private_network, type: "dhcp", docker_network__internal: true
+     docker.vm.network :private_network, ip: "192.168.128.99", netmask: "24"
+       config.vm.provider "docker" do |d|
+        d.image = "nginx"
+        d.name = "app1"
+        d.ports = ["8081:80"]
+       end
+   end
+ end
