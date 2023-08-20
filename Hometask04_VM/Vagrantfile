@@ -31,12 +31,12 @@ Vagrant.configure("2") do |config|
  
  ### Volume
  Vagrant.configure("2") do |config|
-   config.vm.synced_folder "./", "/okury"
+   config.vm.synced_folder "./", "/devops"
    config.ssh.username = "vagrant"
    config.ssh.password = "vagrant"
    config.vm.define "docker"  do |docker|
      docker.vm.network :private_network, type: "dhcp", docker_network__internal: true
-     docker.vm.network :private_network, ip: "192.168.128.99", netmask: "24"
+     docker.vm.network :private_network, ip: "192.168.1.9", netmask: "24"
        config.vm.provider "docker" do |d|
         d.image = "nginx"
         d.name = "app1"
@@ -44,3 +44,29 @@ Vagrant.configure("2") do |config|
        end
    end
  end
+
+ # My test VAGRANT on PC
+ #Vagrant.configure("2") do |config|
+ #config.vm.box = "ubuntu/trusty64"
+ # Config_1 "web1"
+ #config.vm.define "web1" do |web1|
+ # web1.vm.box = "ubuntu/bionic64"
+ # web1.vm.network "private_network", ip: "192.168.1.10"
+ # web1.vm.provider "virtualbox" do |vb|
+ #   vb.memory = "1024"
+ # end
+#end
+
+# Config_2"web2"
+#config.vm.define "web2" do |web2|
+#  web2.vm.box = "ubuntu/bionic64"
+#  web2.vm.network "private_network", ip: "192.168.1.11"
+#  web2.vm.provider "virtualbox" do |vb|
+#    vb.memory = "1024"
+#  end
+#end
+#config.vm.provider "virtualbox" do |vb|
+#     vb.memory = "2048" 
+#  vb.gui = true
+#end
+#end
