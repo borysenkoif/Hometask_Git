@@ -1,0 +1,32 @@
+ 1  history
+    2  clear
+    3  ssh -i "keyaws.pem" ubuntu@ec2-54-242-167-44.compute-1.amazonaws.com
+    4  sudo apt update && sudo apt upgrade
+    5  sudo apt install software-properties-common
+    6  sudo add-apt-repository universe
+    7  sudo wget https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-8 -O /etc/apt/trusted.gpg.d/epel.gpg
+    8  sudo sh -c 'echo "deb https://dl.fedoraproject.org/pub/epel/8/Everything/x86_64 os/" > /etc/apt/sources.list.d/epel.repo'
+    9  sudo apt update
+   10  sudo apt install mc
+   11  sudo apt install mc -y
+   12  sudo apt install git -y
+   13  sudo apt install htop -y
+   14  sudo apt install curl -y
+   15  sudo apt install wget -y
+   16  sudo apt install ansible -y
+   17  sudo apt install ncdu -y
+   18  sudo apt install httpd -y
+   19  udo apt update && sudo apt upgrade
+   20  ps
+   21  sudo apt install apache2
+   22  sudo systemctl start apache2
+   23  sudo systemctl enable apache2
+   24  sudo systemctl status apache2
+   25  ps aux | grep httpd
+   26  sudo apt install stress
+   27  stress -c1
+   28  stress --cpu 1
+   29  ps aux
+   30  htop | stress
+   31  lsblk
+   32  history

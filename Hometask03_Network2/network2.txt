@@ -1,0 +1,4 @@
+git checkout network_part_2
+git status
+ssh-keygen -t rsa -b 4096 -c "borysenkoif@gmail.com"
+nano comand_git.txt
